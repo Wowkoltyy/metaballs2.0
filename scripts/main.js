@@ -1,8 +1,11 @@
 import { Scene, Obj } from "./game/index.js"
+import SkinShop from "./skins/SkinShop.js"
 
 let versionID = document.getElementById("versionID")
 let hardMobile = document.getElementById("hardMobile")
 let theme = document.getElementById("theme")
+window.skins = document.querySelector(".skins")
+window.skinmenu = document.querySelector(".skinmenu")
 
 window.parent = document.getElementById("scene")
 
@@ -33,7 +36,7 @@ gitVersion.open(
 )
 gitVersion.send()
 gitVersion.onreadystatechange = (e) => {
-    versionID.innerHTML = "v. 2.0." + gitVersion.responseText.substring(12, 19)
+    versionID.innerHTML = "v. 2.1." + gitVersion.responseText.substring(12, 19)
 }
 
 function switchMobile() {
@@ -68,5 +71,19 @@ addEventListener("mousemove", (e) => {
 window.parent.addEventListener("mousedown", () => {
     if (!window.parent.classList.contains("playing")) {
         scene.start()
+        window.skins.classList.add("hide")
     }
 })
+
+window.skins.addEventListener("click", () => {
+    window.skins.classList.toggle("h")
+    window.skins.classList.toggle("hide")
+    window.skinmenu.classList.toggle("hide")
+    return false
+})
+
+window.onload = () => {
+    window.skins.classList.remove("hide")
+}
+
+SkinShop()

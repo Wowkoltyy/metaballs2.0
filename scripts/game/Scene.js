@@ -143,8 +143,6 @@ export default class Scene {
             ufo.velocity.x = UFO_VELOCITY * Math.cos(angle)
             ufo.velocity.y = UFO_VELOCITY * Math.sin(angle)
 
-            console.log(ufo)
-
             this.add(ufo)
         }
 
@@ -158,8 +156,6 @@ export default class Scene {
             let shield = new Obj("shield")
             shield.position.x = Math.random() * window.innerWidth
             shield.position.y = Math.random() * window.innerHeight
-
-            console.log(shield)
 
             this.add(shield)
         }
@@ -292,6 +288,7 @@ export default class Scene {
             delete this.ship
             this.running = false
             window.parent.classList.remove("playing")
+            window.skins.classList.remove("hide")
         }
     }
     animate(now) {

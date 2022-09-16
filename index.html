@@ -17,7 +17,7 @@
         <div class="overlay">
             <div>
                 <h1 class="header">Metaballs</h1>
-                <p id="versionID" align="center">v. 2.0</p>
+                <p id="versionID" align="center">v. 2.1</p>
             </div>
             <audio id="theme" loop>
                 <source src="lunch-soundtrack.mp3" type="audio/mpeg" />
@@ -66,7 +66,9 @@
                 </p>
             </div>
             <div class="container">
-                <h1>Start the game</h1>
+                <div class="menu">
+                    <h1>Start the game</h1>
+                </div>
             </div>
 
             <datalist>
@@ -116,6 +118,16 @@
                 data="graphics/target.svg"
                 type="image/svg+xml"
             ></object>
+        </div>
+        <div class="skins hide">Skins</div>
+        <div class="skinmenu hide">
+            <div class="skin" data="ship.svg" objID="ship" price="0"></div>
+            <div
+                class="skin"
+                data="other-ship-taras.svg"
+                objID="ship"
+                price="500"
+            ></div>
         </div>
         <script src="./scripts/main.js" type="module" defer></script>
     </body>

@@ -1,4 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans");
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+@keyframes drop {
+    0% {
+        visibility: hidden;
+        transform: translate(0, 100%);
+    }
+    100% {
+        visibility: visible;
+        transform: translate(0);
+    }
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -15,6 +35,7 @@ body {
                                   supported by Chrome, Edge, Opera and Firefox */
     font-family: "Open Sans", sans-serif;
     overflow: hidden;
+    cursor: default;
 }
 
 object {
@@ -76,15 +97,6 @@ object {
     color: royalblue;
 }
 
-@keyframes scale {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(1.1);
-    }
-}
-
 .overlay .header {
     font-size: 3rem;
     font-weight: bold;
@@ -102,7 +114,7 @@ object {
 }
 
 #scene .container {
-    position: absolute;
+    position: fixed;
     top: 50vh;
     width: 100vw;
     padding: 2rem;
@@ -118,6 +130,7 @@ object {
     transition: top 1s linear;
 
     display: flex;
+    flex-wrap: inherit;
     justify-content: center;
     align-items: center;
 }
@@ -140,4 +153,83 @@ object {
 
 #scene.playing object {
     display: inline;
+}
+
+#scene .menu {
+    display: inline-block;
+}
+
+.skins {
+    position: fixed;
+    display: flex;
+
+    left: 8vw;
+    top: 90vh;
+    width: 10vw;
+    padding: 1rem;
+
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    color: white;
+    border-style: none;
+    z-index: 400;
+    cursor: pointer;
+
+    transition: 1s ease-out;
+
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.skinmenu {
+    position: fixed;
+    display: flex;
+
+    left: 8vw;
+    top: 70vh;
+    width: 70vw;
+    height: 30vh;
+    padding: 1rem;
+
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 2rem;
+    color: white;
+    border-style: none;
+    z-index: 400;
+
+    transition: 1s ease-out;
+
+    display: flex;
+    flex-wrap: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.hide {
+    transform: translate(0, 100%);
+}
+
+.h {
+    transform: translate(0, -30vh);
+}
+.skin {
+    display: flex;
+    color: #b5ff00;
+    text-align: center;
+    background: rgb(36, 36, 36);
+    transition-duration: 0.4s;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 4px;
+
+    justify-content: center;
+    vertical-align: middle;
+
+    cursor: pointer;
+}
+
+.skin:hover {
+    background: rgb(53, 53, 53);
 }
