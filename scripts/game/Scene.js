@@ -170,9 +170,11 @@ export default class Scene {
                     obj.wormhole()
                     let boosting = this.keys.has(KEY_BOOST) || window.mobile
                     if (obj.content) {
-                        obj.content
-                            .getElementById("flame")
-                            .setAttribute("opacity", 1 * boosting)
+                        if(obj.getElementById("flame")){
+                            obj.content
+                                .getElementById("flame")
+                                .setAttribute("opacity", 1 * boosting)
+                            }
                     }
                     obj.acceleration.x =
                         boosting * SHIP_ACCELERATION * Math.cos(obj.rotation)
