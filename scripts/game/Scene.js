@@ -56,6 +56,10 @@ export default class Scene {
         }
         this.score.innerHTML = this.count
     }
+    highScoreRestore() {
+        window.window.highScore = Number(localStorage.getItem("highScore"))
+        window.window.highMeter.innerHTML = window.window.highScore
+    }
     add(obj) {
         this.objects.add(obj)
         window.parent.appendChild(obj.element)
@@ -289,6 +293,7 @@ export default class Scene {
             }
             delete this.ship
             this.running = false
+            localStorage.setItem("highScore", "" + window.window.highScore);
             window.parent.classList.remove("playing")
             window.skins.classList.remove("hide")
         }
