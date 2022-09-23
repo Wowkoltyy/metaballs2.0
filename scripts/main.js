@@ -57,6 +57,8 @@ function muteUnMute() {
 
 window.scene = new Scene()
 
+window.scene.highScoreRestore()
+
 addEventListener("keydown", (e) => {
     scene.keys.add(e.code)
 })
